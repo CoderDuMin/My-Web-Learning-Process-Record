@@ -1,11 +1,16 @@
 const path = require("path")
 const { VueLoaderPlugin } = require("vue-loader/dist/index")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { DefinePlugin } = require("webpack")
 
 module.exports = {
+  mode: "production",
   entry: "./src/main.js",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "./build"),
+    clean: true
     // assetModuleFilename: "abc.png"
   },
   resolve: {
@@ -72,6 +77,16 @@ module.exports = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    // new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: "电商项目",
+      template: "./index.html"
+    }),
+    new DefinePlugin({
+      BASE_URL: "'./'",
+      coderwhy: "'why'",
+      counter: "123"
+    })
   ]
 }
