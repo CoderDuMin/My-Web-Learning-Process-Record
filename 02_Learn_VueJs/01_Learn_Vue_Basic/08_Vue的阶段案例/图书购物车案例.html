@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图书购物车</title>
+  <style>
+    table{
+      border-collapse: collapse;
+      color:#000;
+    }
+    th{
+      font-weight: 700;
+    }
+    th,td{
+      padding: 5px 10px;
+    }
+    td{
+      color:#333;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+    <h2>图书购物车</h2>
+    <table border="1">
+      <thead>
+        <th>序号</th>
+        <th>书籍名称</th>
+        <th>出版日期</th>
+        <th>价格</th>
+        <th>购物</th>
+        <th>操作</th>
+      </thead>
+      <tbody>
+        <tr v-for="(item ,index) in bookscart" :key="item.id">
+          <td>{{ index+1 }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.price.toFixed(2) }}</td>
+          <td>
+            <button @click="sub(index)" :disabled="item.count <= 1">-1</button>
+            <span style="margin:0 5px;">{{item.count}}</span>
+            <button @click="add(index)">+1</button>
+          </td>
+          <td>
+            <button @click="del(index)">删除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>总价:￥{{totalPrice}}</h2>
+  </div>
+  
+  <script src="../lib/vue.js"></script>
+  <script>
+    // Proxy -> Reflect
+    // 1.创建app
+    const app = Vue.createApp({
+      // data: option api
+      data() {
+        return {
+          bookscart: [
+            {
+              id:'1',
+              name:'《JavaScript高级程序设计》',
+              date:'2016-05',
+              price:128.5,
+              count:1
+            },
+            {
+              id:'2',
+              name:'《CSS世界》',
+              date:'2018-04',
+              price:49.99,
+              count:1
+            },
+            {
+              id:'3',
+              name:'《十大设计模式》',
+              date:'2012-03',
+              price:99.50,
+              count:1
+            },
+            {
+              id:'4',
+              name:'《深入浅出React》',
+              date:'2019-05',
+              price:78.88,
+              count:1
+            }
+          ]
+        }
+      },
+      computed:{
+        totalPrice(){
+          return this.bookscart.reduce((pre,cur) => { 
+              return ((cur.price * cur.count) + pre)
+            },0).toFixed(2)
+        }
+      },
+      methods: {
+        add(index){
+          this.bookscart[index].count += 1
+        },
+        sub(index){
+          this.bookscart[index].count -= 1
+        },
+        del(index){
+          this.bookscart.splice(index,1)
+        }
+      },
+      watch: {
+       bookscart:{
+        handler(newValue,oldValue){
+          console.log('bookcart发生改变',newValue,oldValue)
+        },
+        deep:true
+       }
+      }
+    })
+
+    // 2.挂载app
+    app.mount("#app")
+  </script>
+</body>
+</html>
