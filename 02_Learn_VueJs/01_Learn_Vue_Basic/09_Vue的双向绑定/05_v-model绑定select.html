@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+    <select name="like" id="like" v-model="fruits">
+      <option value="apple">苹果</option>
+      <option value="orange">橘子</option>
+      <option value="banan">香蕉</option>
+      <option value="watermelon">西瓜</option>
+    </select>
+    <h3>喜欢的水果:单选</h3>
+    <p>{{fruits}}</p>
+    <hr>
+    <select name="likem" id="likem" multiple  v-model="mfruits">
+      <option value="apple">苹果</option>
+      <option value="orange">橘子</option>
+      <option value="banan">香蕉</option>
+      <option value="watermelon">西瓜</option>
+    </select>
+    <h3>喜欢的水果:多选</h3>
+    <p>{{mfruits}}</p>
+  </div>
+  
+  <script src="../lib/vue.js"></script>
+  <script>
+    // 1.创建app
+    const app = Vue.createApp({
+      // data: option api
+      data() {
+        return {
+          fruits: '',
+          mfruits:[]
+        }
+      },
+      methods: {
+      }
+    })
+
+    // 2.挂载app
+    app.mount("#app")
+  </script>
+</body>
+</html>

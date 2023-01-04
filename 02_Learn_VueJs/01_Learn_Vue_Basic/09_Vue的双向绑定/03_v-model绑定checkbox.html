@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+    <label for="liscen">
+      <input type="checkbox" id="liscen" v-model="isAgree">是否同意用户协议
+    </label>
+    <h3>用户协议:{{isAgree}}</h3>
+    <label for="baskt">
+      <input type="checkbox" id="baskt" value="篮球" v-model="hobbies">篮球
+    </label>
+    <label for="fotb">
+      <input type="checkbox" id="fotb" value="足球" v-model="hobbies">足球
+    </label>
+    <label for="basb">
+      <input type="checkbox" id="basb" value="排球" v-model="hobbies">排球
+    </label>
+    <h3>爱好:{{hobbies}}</h3>
+
+  </div>
+  
+  <script src="../lib/vue.js"></script>
+  <script>
+    // 1.创建app
+    const app = Vue.createApp({
+      // data: option api
+      data() {
+        return {
+          isAgree: false,
+          hobbies:[]
+        }
+      },
+      methods: {
+      }
+    })
+
+    // 2.挂载app
+    app.mount("#app")
+  </script>
+</body>
+</html>
