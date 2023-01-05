@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app">
+    <select name="like" id="like" v-model="game">
+      <option v-for="item in allGames" :value="item.value" :key="item.value">{{item.name}}</option>
+    </select>
+    <h3>喜欢的游戏:单选</h3>
+    <p>{{game}}</p>
+    <hr>
+    <select name="likem" id="likem" multiple  v-model="fruits">
+      <option v-for="item in allFruits" :value="item.value" :key="item.value">{{item.name}}</option>
+      
+    </select>
+    <h3>喜欢的水果:多选</h3>
+    <p>{{fruits}}</p>
+  </div>
+  
+  <script src="../lib/vue.js"></script>
+  <script>
+    // 1.创建app
+    const app = Vue.createApp({
+      // data: option api
+      data() {
+        return {
+          allFruits:[
+            {value:'apple',name:'苹果'},
+            {value:'orange',name:'橘子'},
+            {value:'banana',name:'香蕉'},
+            {value:'watermelon',name:'西瓜'},
+          ],
+          allGames:[
+            {value:'darksoul3',name:'黑暗之魂3'},
+            {value:'Witcher3',name:'巫师3'},
+            {value:'taketwo',name:'双人成行'},
+          ],
+          fruits: [],
+          game:''
+        }
+      },
+      methods: {
+      }
+    })
+
+    // 2.挂载app
+    app.mount("#app")
+  </script>
+</body>
+</html>
