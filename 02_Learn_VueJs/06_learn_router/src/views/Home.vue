@@ -1,14 +1,27 @@
 <template>
-  <h2>Home</h2>
-  <div>
-    <RouterLink to="/home/recommend">推荐榜单</RouterLink>
-    <RouterLink to="/home/rank">歌单排行</RouterLink>
+  <div class="home">
+    <h2>Home</h2>
+
+    <div class="home-nav">
+      <router-link to="/home/recommend">推荐</router-link>
+      <router-link to="/home/ranking">排行</router-link>
+    </div>
+
+    <button @click="logoutClick">退出登录</button>
+
+    <!-- 占位组件 -->
+    <router-view></router-view>
   </div>
-  <RouterView ></RouterView>
 </template>
 
 <script setup>
+
+  function logoutClick() {
+    localStorage.removeItem("token")
+  }
+
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 </style>
+

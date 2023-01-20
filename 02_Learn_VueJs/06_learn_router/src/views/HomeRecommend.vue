@@ -1,15 +1,21 @@
 <template>
-  <h3>推荐榜单</h3>
-  <ul>
-    <li>热歌榜</li>
-    <li>飙升榜</li>
-    <li>新歌榜</li>
-    <li>收藏榜</li>
-  </ul>
+  <div class="home-recommend">
+    <h2>HomeRecommend</h2>
+    <ul>
+      <li>推荐歌单1</li>
+      <li>推荐歌单2</li>
+      <li>推荐歌单3</li>
+      <li>推荐歌单4</li>
+    </ul>
+  </div>
 </template>
 
-<script setup>
+<script>
+  export default {
+
+  }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 </style>
+

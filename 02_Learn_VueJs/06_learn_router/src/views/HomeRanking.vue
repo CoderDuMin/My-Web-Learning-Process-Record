@@ -1,15 +1,21 @@
 <template>
-  <h3>rank歌单</h3>
-  <ul>
-    <li>歌单1</li>
-    <li>歌单2</li>
-    <li>歌单3</li>
-    <li>歌单4</li>
-  </ul>
+  <div class="home-ranking">
+    <h2>各种榜单</h2>
+    <ul>
+      <li>热歌榜</li>
+      <li>新歌榜</li>
+      <li>原创榜</li>
+      <li>歌手榜单</li>
+    </ul>
+  </div>
 </template>
 
-<script setup>
+<script>
+  export default {
+
+  }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 </style>
+

@@ -1,17 +1,28 @@
 <template>
-  <h2>User</h2>
-  <p>当前用户:{{$route.params.id}}</p>
+  <div class="user">
+    <!-- 在模板中获取到id -->
+    <h2>User: {{ $route.params.id }}</h2>
+    
+  </div>
+
+
+  
 </template>
 
 <script setup>
-import {onBeforeRouteUpdate, useRoute} from 'vue-router'
-console.log('user',useRoute().params.id)
+  import { useRoute, onBeforeRouteUpdate } from 'vue-router'
 
-onBeforeRouteUpdate((to,from) => {
-  console.log('to',to.params.id)
-  console.log('from',from.params.id)
-})
+  const route = useRoute()
+  console.log(route.params.id)
+
+  // 获取route跳转id
+  onBeforeRouteUpdate((to, from) => {
+    console.log("from:", from.params.id)
+    console.log("to:", to.params.id)
+  })
+
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 </style>
+
