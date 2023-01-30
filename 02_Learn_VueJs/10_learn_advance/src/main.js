@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
-import App from './01_自定义指令/App.vue'
 import directives from './01_自定义指令/directives'
+// import App from './01_自定义指令/App.vue'
+// import App from './04_Render函数/App.vue'
+import App from './05_JSX语法/App.vue'
 
 createApp(App).use({
   install(app){
