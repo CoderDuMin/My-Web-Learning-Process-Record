@@ -1,0 +1,30 @@
+const games = [
+  {
+    name:'黑暗之魂三',
+    date:'2016-07',
+    price:298,
+    count:1,
+    author:'宫崎英高'
+  },
+  {
+    name:'巫师三-狂猎',
+    date:'2015-06',
+    price:68,
+    count:1,
+    author:'波兰蠢驴'
+  },
+  {
+    name:'死亡搁浅',
+    date:'2019-12',
+    price:298,
+    count:1,
+    author:'小岛秀夫'
+  },
+  {
+    name:'艾尔登法环',
+    date:'2022-02',
+    price:398,
+    count:1,
+    author:'宫崎英高'
+  }
+]
