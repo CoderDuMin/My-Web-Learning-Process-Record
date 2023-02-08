@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-
-export default class MainBanner extends Component {
+import propTypes from 'prop-types'
+class MainBanner extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -9,10 +9,10 @@ export default class MainBanner extends Component {
   }
   render() {
     const { message } = this.state
-    const { banner } = this.props
+    const { banner,title } = this.props
     return (
       <div>
-        <div>MainBanner,{message}</div>
+        <div>{title}的{message}</div>
         <ul>
           {
             banner&&banner.map(item => {
@@ -24,3 +24,14 @@ export default class MainBanner extends Component {
     )
   }
 }
+
+MainBanner.propTypes = {
+  banner:propTypes.array,
+  title:propTypes.string
+}
+MainBanner.defaultProps = {
+  banner:[],
+  title:'默认'
+}
+
+export default MainBanner

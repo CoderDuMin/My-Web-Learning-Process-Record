@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-
-export default class MainProduct extends Component {
+import propTypes from 'prop-types'
+class MainProduct extends Component {
+  static defaultProps = {
+    productList:[]
+  }
   render() {
     const { productList } = this.props
     return (
@@ -17,3 +20,8 @@ export default class MainProduct extends Component {
     )
   }
 }
+MainProduct.propTypes = {
+  productList:propTypes.array
+}
+
+export default MainProduct

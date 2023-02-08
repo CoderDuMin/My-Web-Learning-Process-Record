@@ -24,8 +24,11 @@ export default class Main extends Component {
     return (
       <div>
         <h3>Main组件</h3>
-        <MainBanner banner={this.state.banners} />
+        <MainBanner banner={this.state.banners} title="热门的"/>
+        <MainBanner banner={this.state.banners} title={111} />
+        <MainBanner  />
         <MainProduct productList={this.state.productList} />
+        <MainProduct  />
         <hr />
       </div>
     )
