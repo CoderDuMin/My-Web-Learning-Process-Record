@@ -1,0 +1,16 @@
+.tab-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.tab-box .item{
+  width: 80px;
+  color:#333;
+  padding: 5px 10px;
+  font-size: 16px;
+  text-align: center;
+}
+.tab-box .item.active{
+  color:orange;
+  border-bottom: 2px solid orange;
+}
