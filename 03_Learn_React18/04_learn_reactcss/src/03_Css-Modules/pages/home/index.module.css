@@ -1,0 +1,9 @@
+.home{
+  padding: 10px;
+  border: 1px solid #bbb;
+}
+.title{
+  font-size: 30px;
+  font-weight: bolder;
+  box-shadow: 5px rgba(80, 201, 80, 0.5);
+}
