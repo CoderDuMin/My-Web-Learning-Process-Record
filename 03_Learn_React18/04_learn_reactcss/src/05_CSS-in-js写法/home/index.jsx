@@ -11,7 +11,7 @@ export class Home extends PureComponent {
           <li>列表3</li>
           <li>列表4</li>
         </ul>
-        <ItemWrapper>
+        <ItemWrapper color={'#1890ff'} >
           哈哈哈哈
         </ItemWrapper>
       </HomeWrapper>

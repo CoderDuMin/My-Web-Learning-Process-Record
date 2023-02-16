@@ -16,12 +16,12 @@ li{
 `
 
 export const ItemWrapper = styled.div.attrs({
-  color:'purple',
-  size:'50px'
+  tColor:props => (props.color ||'purple'),
+  tSize:props => (props.size ||'50px'),
 })`
 
-  font-size:${props => props.size};
-  color:${props => props.color};
+  font-size:${props => props.tSize};
+  color:${props => props.tColor};
   font-weight:bolder;
 
 `
