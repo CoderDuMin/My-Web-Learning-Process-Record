@@ -1,14 +1,6 @@
 const { createStore } = require('redux')
 
-const defaultState = {
-  name:'aaa',
-  age:18,
-  height:1.88
-}
-
-function reducer(){
-  return defaultState
-}
+const {reducer} = require('./reducer')
 
 
 const store = createStore(reducer)
