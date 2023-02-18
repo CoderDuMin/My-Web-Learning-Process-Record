@@ -1,0 +1,10 @@
+.box{
+  display: flex;
+  justify-content: space-between;
+}
+
+.box>div{
+  flex:1;
+  border:1px solid orange;
+  padding: 20px;
+}
