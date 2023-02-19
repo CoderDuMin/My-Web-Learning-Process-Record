@@ -6,13 +6,13 @@ export class Profile extends PureComponent {
   constructor(){
     super()
     this.state = {
-      counter:store.getState().counter
+      counter:store.getState().counter.counter
     }
   }
   componentDidMount(){
     store.subscribe(() => {
       this.setState({
-        counter:store.getState().counter
+        counter:store.getState().counter.counter
       })
     })
   }

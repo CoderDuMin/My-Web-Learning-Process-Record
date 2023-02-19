@@ -1,20 +1,12 @@
-const { ADD_COUNT, SUB_COUNT } = require("./constants")
+import { combineReducers } from 'redux'
 
-const defaultState = {
-  counter:2
-}
+import { reducer as homeReducer } from './modules/home/reducer'
+import {reducer as counterReducer } from './modules/counter/reducer'
 
-function reducer(state=defaultState,action){
-  switch(action.type){
-    case ADD_COUNT:
-      return {...state,counter:state.counter + action.num}
-    case SUB_COUNT:
-      return {...state,counter:state.counter - action.num}
-    default:
-      return state
-  }
-}
 
-export {
-  reducer
-} 
+const reducer = combineReducers({
+  home:homeReducer,
+  counter:counterReducer
+})
+
+export default reducer

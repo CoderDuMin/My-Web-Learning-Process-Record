@@ -1,18 +1,6 @@
-import { ADD_COUNT, CHANGE_BANNERS, CHANGE_RECOMMENDS, SUB_COUNT } from "./constants"
+import { CHANGE_RECOMMENDS, SUB_COUNT } from "./constants"
 import axios from 'axios'
-export const addCountAction = (num) => {
-  return {
-    type:ADD_COUNT,
-    num: num
-  }
-}
 
-export const subCountAction = (num) => {
-  return {
-    type:SUB_COUNT,
-    num: num
-  }
-}
 
 export const changeBannersAction = (banners) => {
   return {
