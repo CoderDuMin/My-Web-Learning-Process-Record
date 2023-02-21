@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react'
 import { useNavigate } from 'react-router-dom'
-import withNavgator from '../hoc/withNavgator'
+import withRouter from '../hoc/withRouter'
 
 //类组件中无法使用useNavgate hook ,如果需用使用,可以定义高阶组件包裹
 export class HomeStore extends PureComponent {
   
   navgatorTo(){
     console.log('navgatorTo:login')
-    this.props.navgator('/login')
+    this.props.router.navgator('/login')
   }
   render() {
     return (
@@ -35,4 +35,4 @@ export class HomeStore extends PureComponent {
 //   )
 // }
 
-export default withNavgator(HomeStore) 
+export default withRouter(HomeStore) 
