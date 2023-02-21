@@ -1,0 +1,14 @@
+.header-bar{
+  padding: 10px;
+  border-bottom: 1px solid #000;
+  text-align: center;
+}
+.header-bar .active{
+  color:red;
+  font-size: 18px;
+}
+.footer{
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #000;
+}
