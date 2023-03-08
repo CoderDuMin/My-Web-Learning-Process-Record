@@ -15,10 +15,10 @@
       position: relative;
       width: 100px;
       height: 100px;
-      background-color: red;
+      /* background-color: red; */
       position: relative;
       transform-style: preserve-3d;
-      transform: rotateX(-33.5deg) rotateY(45deg) scaleZ(1);
+      transform: rotateX(-33.5deg) rotateY(45deg) scale3d(1,1,1);
     }
     .item{
       position: absolute;
@@ -26,43 +26,43 @@
       top: 0;
       width: 100px;
       height: 100px;
-      transform-origin: 0 0;
-    }
-    .left{
-      background-color: rgba(255, 0, 0, 0.4);
-      transform: translateX(-100px) rotateY(-90deg);
-
-    }
-    .right{
-      background-color: rgba(0, 255, 0, 0.4);
-      transform:translateX(200px) rotateY(-90deg);
+      /* transform-origin: 0 0; */
     }
     .top{
-      background-color: rgba(0,0,255,.4);
-      transform: rotateX(90deg) translateZ(100px);
+      background-color: rgba(255,0,100,.4);
+      transform: rotateX(90deg) translateZ(50px);
     }
     .bottom{
-      background-color: rgba(100,100,.4);
-      transform: translateY(200px) rotateX(90deg);
+      background-color: rgba(100,100,55,.4);
+      transform: rotateX(90deg) translateZ(-50px);
+    }
+
+    .left{
+      background-color: rgba(0,255,0,.4);
+      transform: rotateY(-90deg) translateZ(50px);
+    }
+    .right{
+      background-color: rgba(0,255,100,.4);
+      transform: rotateY(-90deg) translateZ(-50px);
     }
     .forward{
-      background-color: rgba(50,0,100,.4);
-      transform: translateZ(200px);
+      background-color: rgba(20,155,255,.4);
+      transform: translateZ(50px);
     }
     .back{
-      background-color: rgba(200,50,155,.4);
-      transform: translateZ(-100px);
+      background-color: rgba(20,180,140,.4);
+      transform: translateZ(-50px);
     }
   </style>
 </head>
 <body>
   <div class="box"> div
-    <div class="item left"></div>
-    <div class="item bottom"></div>
-    <div class="item right"></div>
-    <div class="item back"></div>
-    <div class="item forward"></div>
     <div class="item top"></div>
+    <div class="item bottom"></div>
+    <div class="item left"></div>
+    <div class="item right"></div>
+    <div class="item forward"></div>
+    <div class="item back"></div>
   </div>
   
 </body>
