@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-image: url(../images/grid.png);
+    }
+    #myCanvas{
+      background-color: rgba(255,0,0,.1);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="600" height="600"></canvas>
+
+  <script>
+      const canvasEl = document.querySelector('#myCanvas')
+      const ctx = canvasEl.getContext('2d')
+
+      ctx.beginPath()
+      ctx.moveTo(100,100)
+      ctx.lineTo(100,150)
+      ctx.lineTo(150,100)
+      ctx.lineTo(150,360)
+      // ctx.closePath()
+      ctx.stroke()
+  </script>
+</body>
+</html>
