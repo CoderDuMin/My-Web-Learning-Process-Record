@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-image: url(../../images/grid.png);
+    }
+    #myCanvas{
+      background-color: rgba(255,0,0,.1);
+    }
+    .clock{
+        margin: 10px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50px;
+        background-color: #000;
+    }
+  </style>
+</head>
+<body>
+    <div class="clock">
+        <canvas id="myCanvas" width="300" height="300"></canvas>
+    </div>
+
+  <script>
+    const canvasEl = document.querySelector('#myCanvas')
+    const ctx = canvasEl.getContext('2d')
+      
+    //1.绘制时钟背景
+    ctx.save()
+    ctx.fillStyle='white'
+    ctx.translate(150,150)
+    ctx.arc(0,0,130,0,Math.PI*2)
+    ctx.fill()
+    ctx.restore()   
+
+    // 2.绘制时钟数字
+    ctx.save()
+    ctx.font='22px fangsong'
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.translate(150,150)
+    ctx.fillText(3,110,0,30)
+    ctx.restore()
+
+    
+  </script>
+</body>
+</html>

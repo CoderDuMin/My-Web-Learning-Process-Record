@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-image: url(../../images/grid.png);
+    }
+    #myCanvas{
+      background-color: rgba(255,0,0,.1);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="600" height="600"></canvas>
+
+  <script>
+      const canvasEl = document.querySelector('#myCanvas')
+      const ctx = canvasEl.getContext('2d')
+
+      const sunImg = new Image()
+      sunImg.src = "../../images/canvas_sun.png"
+      const earthImg = new Image()
+      earthImg.src = "../../images/canvas_earth.png"
+      const moonImg = new Image()
+      moonImg.src = "../../images/canvas_moon.png"
+      
+      let count = 0
+    //   moonImg.onload = () =>{
+    //     requestAnimationFrame(draw)
+    //   }
+      requestAnimationFrame(draw)
+      function draw(){
+        count++
+        ctx.clearRect(0,0,300,300)
+
+        // 绘制太阳
+        ctx.save()
+        ctx.drawImage(sunImg,0,0)
+        ctx.restore()
+
+        //绘制地球
+        ctx.save()
+
+        ctx.translate(150,150)
+        ctx.rotate(Math.PI * 2 * (count/600))
+        ctx.translate(105,0)
+        ctx.drawImage(earthImg,-12,-12)
+        
+        //绘制月球
+        ctx.rotate(Math.PI * 2 * (count/120))
+        ctx.translate(30,0)
+        ctx.drawImage(moonImg,-3.5,-3.5)
+
+        ctx.restore()
+
+
+
+        requestAnimationFrame(draw)
+      }
+
+
+
+      
+
+  </script>
+</body>
+</html>
