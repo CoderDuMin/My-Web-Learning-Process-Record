@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-image: url(../images/grid.png);
+    }
+    #myCanvas{
+      background-color: rgba(255,0,0,.1);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="600" height="600"></canvas>
+
+  <script>
+      const canvasEl = document.querySelector('#myCanvas')
+      const ctx = canvasEl.getContext('2d')
+    
+    //1.rotate形变（没有保存状态）   
+      // ctx.translate(100,100)
+      // ctx.rotate(Math.PI / 180 * 45)
+      // ctx.fillStyle="#1890ef"
+      // ctx.fillRect(0,0,50,50)
+      
+      // ctx.fillStyle='red'
+      // ctx.fillRect(100,0,50,50) //原点发生变化
+
+    // //2.rotate形变（通过save保存状态）
+    ctx.save()
+    ctx.translate(100,100)
+    ctx.rotate(Math.PI / 180 * 45)
+    ctx.fillStyle="#1890ef"
+    ctx.fillRect(0,0,50,50)
+    ctx.restore()
+    
+    ctx.save()
+    ctx.fillStyle='red'
+    ctx.fillRect(100,0,50,50) //原点发生变化
+    ctx.restore()
+
+  </script>
+</body>
+</html>

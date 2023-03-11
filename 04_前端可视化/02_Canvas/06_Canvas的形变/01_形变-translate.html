@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-image: url(../images/grid.png);
+    }
+    #myCanvas{
+      background-color: rgba(255,0,0,.1);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="600" height="600"></canvas>
+
+  <script>
+      const canvasEl = document.querySelector('#myCanvas')
+      const ctx = canvasEl.getContext('2d')
+    
+    //1.translate形变（没有保存状态）   
+    //   ctx.translate(100,100)
+    //   ctx.fillStyle="#1890ef"
+    //   ctx.fillRect(0,0,100,50)
+      
+    //   ctx.storkeStyle='red'
+    //   ctx.strokeRect(100,100,50,50) //原点发生变化
+
+    //2.translate形变（通过save保存状态）
+    //保存形变之前的状态
+    ctx.save()
+    ctx.translate(100,100)
+    ctx.fillStyle="#1890ef"
+    ctx.fillRect(0,0,100,50)
+
+    //绘图结束，恢复形变之前的状态
+    ctx.restore()
+
+    ctx.storkeStyle='red'
+    ctx.strokeRect(100,100,50,50) //读取上一次save时的状态，原点没有发生变化
+  </script>
+</body>
+</html>
