@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-image: url(../images/grid.png);
+    }
+    #myCanvas{
+      background-color: rgba(255,0,0,.1);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="600" height="600"></canvas>
+  <button onclick="starAnimation()">开始动画</button>
+  <button onclick="endAnimation()">结束动画</button>
+
+  <script>
+      const canvasEl = document.querySelector('#myCanvas')
+      const ctx = canvasEl.getContext('2d')
+      const aniTimer = null
+      
+      ctx.fillStyle="#1890ef"
+      ctx.fillRect(0,0,50,50)
+
+      let x=0,y=0,addXCount=9,addYCount=9
+
+      function starAnimation(){
+        aniTimer = setInterval(()=>{
+            console.log(x)
+            ctx.clearRect(0,0,600,600)
+            ctx.save()
+            ctx.fillStyle="#1890ef"
+            ctx.fillRect(x,y,50,50)
+            if(x < 0 && addXCount < 0){
+                addXCount = 9
+            }else if(x >= 550 && addXCount > 0){
+                addXCount = -9
+            }
+            if(y < 0 && addYCount < 0){
+                addYCount = 9
+            }else if(y >= 550 && addYCount > 0){
+                addYCount = -9
+            }
+            x += addXCount
+            y += addYCount
+            ctx.restore()
+        },17)
+      }
+
+      function endAnimation(){
+        if(aniTimer){
+            clearInterval(aniTimer)
+            aniTimer = null
+        }
+      }
+  </script>
+</body>
+</html>

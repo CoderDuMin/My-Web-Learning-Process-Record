@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-image: url(../images/grid.png);
+    }
+    #myCanvas{
+      background-color: rgba(255,0,0,.1);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="600" height="600"></canvas>
+
+  <script>
+      const canvasEl = document.querySelector('#myCanvas')
+      const ctx = canvasEl.getContext('2d')
+
+      requestAnimationFrame(drawPoint)
+    function drawPoint(){
+        let second = new Date().getSeconds()
+        let minute = (new Date().getMinutes() * 60 + second)/60
+        let hour = ((new Date().getHours() * 3600) + (new Date().getMinutes() * 60) + second)/3600
+        ctx.clearRect(-100,-100,600,600)
+
+        // 时钟边框
+        ctx.save()
+        ctx.stokeStyle='#1890ef'
+        ctx.lineWidth=5
+        ctx.translate(200,200)
+        ctx.beginPath()
+        ctx.arc(0,0,90,0,Math.PI*2)
+        ctx.closePath()
+        ctx.stroke()
+        ctx.restore()
+
+        //时钟刻度
+        for(let i=1;i<=60;i++){
+          ctx.save()
+          ctx.lineWidth=2
+          ctx.strokeStyle="#333"
+          ctx.translate(200,200)
+          ctx.rotate(Math.PI * 2 / 60 * i)
+          ctx.beginPath()
+          ctx.moveTo(0,-87.5)
+          ctx.lineTo(0,-84)
+          ctx.stroke()
+          ctx.closePath()
+          ctx.restore()
+        }
+
+
+        //时钟刻度
+        for(let i=1;i<=12;i++){
+          ctx.save()
+          ctx.lineWidth=4
+          ctx.strokeStyle="#333"
+          ctx.translate(200,200)
+          ctx.rotate(Math.PI * 2 / 12 * i)
+          ctx.beginPath()
+          ctx.moveTo(0,-87.5)
+          ctx.lineTo(0,-82)
+          ctx.stroke()
+          ctx.closePath()
+          ctx.restore()
+        }
+
+        // 绘制时针
+        ctx.save()
+        ctx.translate(200,200)
+        ctx.rotate(Math.PI * 2 / 12 * (hour))
+        ctx.lineWidth = 6
+        ctx.lineCap='round'
+        ctx.strokeStyle='#333'
+        ctx.beginPath()
+        ctx.moveTo(0,0)
+        ctx.lineTo(0,-45)
+        ctx.closePath()
+        ctx.stroke()
+        ctx.restore()
+
+        // 绘制分针
+        ctx.save()
+        ctx.translate(200,200)
+        ctx.rotate(Math.PI * 2 / 60 * (minute))
+        ctx.lineWidth = 4
+        ctx.strokeStyle='#18e0ef'
+        ctx.lineCap = 'square'
+        ctx.beginPath()
+        ctx.moveTo(0,0)
+        ctx.lineTo(0,-60)
+        ctx.closePath()
+        ctx.stroke()
+        ctx.restore()
+
+        // 绘制秒针
+        ctx.save()
+        ctx.translate(200,200)
+        ctx.rotate(Math.PI * 2 /60 * second)
+        ctx.lineWidth = 2
+        ctx.strokeStyle='#1890ef'
+        ctx.lineCap = 'round'
+        ctx.beginPath()
+        ctx.moveTo(0,0)
+        ctx.lineTo(0,-70)
+        ctx.closePath()
+        ctx.stroke()
+        ctx.restore()
+
+        requestAnimationFrame(drawPoint)
+    }
+  </script>
+</body>
+</html>
