@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const xmlns ="http://www.w3.org/2000/svg"
+    const svgEl = document.createElementNS(xmlns,'svg')
+    const rectEl = document.createElementNS(xmlns,'rect')
+
+    svgEl.setAttributeNS(null,'width','100')
+    svgEl.setAttributeNS(null,'height','100')
+
+    rectEl.setAttributeNS(null,'x','0')
+    rectEl.setAttributeNS(null,'y','0')
+    rectEl.setAttributeNS(null,'width','100')
+    rectEl.setAttributeNS(null,'height','100')
+
+    svgEl.appendChild(rectEl)
+
+    document.body.append(svgEl)
+  </script>
+</body>
+</html>
