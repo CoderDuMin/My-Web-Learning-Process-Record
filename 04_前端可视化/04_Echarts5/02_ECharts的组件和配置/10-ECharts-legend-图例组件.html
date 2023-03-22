@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="main" style="height: 400px"></div>
+  <script src="../libs/echarts-5.3.3.js"></script>
+  <script>
+    window.onload = function() {
+      let myChart = echarts.init(document.getElementById('main'));
+      let option = {
+        backgroundColor: 'rgba(255, 255, 0, 0.1)',
+        grid: {
+          show: false,
+          backgroundColor: 'rgba(0, 255, 0, 0.1)',
+        },
+
+        title: {
+          show: true,
+          text:'Echarts图表标题',
+          left:'50%',
+          top:'48%',
+          // padding:[10,20],
+          textAlign:'center',
+          textVerticalAlign:'middle',
+          textStyle:{
+            color:'red'
+          },
+          subtext:'Echarts图表子标题',
+          subtextStyle:{
+            color:'green'
+          }
+        }, 
+        legend:{
+          show:true,
+          formatter: function (name) {
+              return 'Legend ' + name;
+          },
+          icon:'roundRect'
+        },
+        series: [
+          {
+            name: "产品销量柱形图",
+            type: "pie",
+            radius:['45%','85%'],
+            roseType:'rose',
+            data: [
+            {
+                value: 20,
+                name: "羊毛衫",
+              },
+              {
+                value: 36,
+                name: "雪纺衫",
+              },
+              {
+                value: 10,
+                name: "裤子",
+              },
+              {
+                value: 10,
+                name: "高跟鞋",
+              },
+              {
+                value: 20,
+                name: "袜子",
+              },
+            ]
+          }
+        ]
+      };
+      myChart.setOption(option);
+    }
+  </script>
+</body>
+</html>
