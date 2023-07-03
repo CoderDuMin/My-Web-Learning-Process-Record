@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片懒加载</title>
+  <style>
+    body {
+      overflow: auto;
+    }
+
+    img {
+      width: 600px;
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="./assets/DreamGirl.jpg" data-src="./assets/CyberAgent.jpg" alt="">
+  <img src="./assets/DreamGirl.jpg" data-src="./assets/CyberAgent.jpg" alt="">
+  <img src="./assets/DreamGirl.jpg" data-src="./assets/CyberAgent.jpg" alt="">
+  <img src="./assets/DreamGirl.jpg" data-src="./assets/CyberAgent.jpg" alt="">
+  <img src="./assets/DreamGirl.jpg" data-src="./assets/CyberAgent.jpg" alt="">
+  <img src="./assets/DreamGirl.jpg" data-src="./assets/CyberAgent.jpg" alt="">
+  <img src="./assets/DreamGirl.jpg" data-src="./assets/CyberAgent.jpg" alt="">
+  <img src="./assets/DreamGirl.jpg" data-src="./assets/CyberAgent.jpg" alt="">
+  <img src="./assets/DreamGirl.jpg" data-src="./assets/CyberAgent.jpg" alt="">
+  <img src="./assets/DreamGirl.jpg" data-src="./assets/CyberAgent.jpg" alt="">
+  <img src="./assets/DreamGirl.jpg" data-src="./assets/CyberAgent.jpg" alt="">
+  <img src="./assets/DreamGirl.jpg" data-src="./assets/CyberAgent.jpg" alt="">
+</body>
+<script src="./03_防抖节流函数实现.js"></script>
+<script>
+  let imgs = document.querySelectorAll('img')
+  function lazyLoad() {
+    //1.获取窗口高度innerheight
+    let innerHeight = window.innerHeight
+    //2.获取滚动高度scrollTop
+    let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+    console.log(scrollTop)
+    for (let i = 0; i < imgs.length; i++) {
+      //3.获取每个img距离文档顶部位置offsetTop
+      let offsetTop = imgs[i].offsetTop
+      //4.判断img距离文档顶部位置是否小于滚动高度加上文档高度
+      //小于说明图片在窗口可视区域内
+      //将data-src值赋给img的src属性实现图片懒加载
+      if (offsetTop < scrollTop + innerHeight) {
+        imgs[i].src = imgs[i].getAttribute('data-src')
+      }
+    }
+  }
+  // window.onscroll = debounce(lazyLoad, 1500)
+  window.onscroll = throllte(lazyLoad, 1500)
+  lazyLoad()
+</script>
+
+</html>
