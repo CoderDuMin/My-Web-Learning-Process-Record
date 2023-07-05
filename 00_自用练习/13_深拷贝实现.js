@@ -41,3 +41,5 @@ const copyobj = deepClone(obj)
 console.log(copyobj)
 copyobj.wife.name = 'mmm1'
 console.log(obj, copyobj);
+
+console.log(deepClone(null))
